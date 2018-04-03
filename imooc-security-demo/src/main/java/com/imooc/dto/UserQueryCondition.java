@@ -1,5 +1,7 @@
 package com.imooc.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Crete by Marlon
  * Create Date: 2018/3/29
@@ -8,8 +10,13 @@ package com.imooc.dto;
 public class UserQueryCondition {
 
     private String username;
+
+    @ApiModelProperty(value = "用户年龄起始值")
     private int age;
+    @ApiModelProperty(value = "用户年龄终止值")
     private int ageTo;
+
+
     private String xxx;
 
     public String getUsername() {
