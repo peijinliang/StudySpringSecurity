@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
  * Class Describe
  * 消息的监听队列
  **/
+
 @Component
 public class QueueListener implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -25,11 +26,9 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
     @Autowired
     private DeferredResultHolder deferredResultHolder;
 
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         new Thread(() -> {
-
             while (true) {
                 if (StringUtils.isNotBlank(mockQueue.getCompleteOrer())) {
 
@@ -49,7 +48,6 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
             }
 
         }).start();
-
 
     }
 

@@ -19,13 +19,14 @@ import java.util.List;
  * Create Date: 2018/3/29
  * Class Describe
  **/
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
 
     /**
-     * 正常情况下的校验
      * if (StringUtils.isEmpty(user.getBirthday())) {
+     * <p>
      * <p>
      * }
      */
@@ -61,26 +62,27 @@ public class UserController {
         return user;
     }
 
+
     @DeleteMapping(value = "/{id:\\d+}")
     public void delete(@PathVariable(name = "id") String id) {
         System.out.println("delete  id :" + id);
-
     }
+
 
     /**
      * @param username
      * @param pageable
      * @return
-     * @RequestMapping(value = "/user", method = RequestMethod.GET)  优化
+     * @RequestMapping(value = "/user", method = RequestMethod.GET)  锟脚伙拷
      * @GetMapping(value = "/user")
      */
     @GetMapping
     @JsonView(User.UserSimpleView.class)
     public List<User> query(@RequestParam(required = false, name = "username", defaultValue = "no values") String username, @PageableDefault(size = 10, page = 1, sort = "usernane,asc") Pageable pageable) {
-        System.out.println("username------：" + username);
-        System.out.println("page:size ------：" + pageable.getPageSize());
-        System.out.println("page number------：" + pageable.getPageNumber());
-        System.out.println("sort-----：" + pageable.getSort());
+        System.out.println("username------" + username);
+        System.out.println("page:size ------" + pageable.getPageSize());
+        System.out.println("page number------" + pageable.getPageNumber());
+        System.out.println("sort----" + pageable.getSort());
         List<User> users = new ArrayList<>();
         users.add(new User("xiaoming", "123123"));
         users.add(new User("xiaoming", "123123"));
@@ -89,8 +91,6 @@ public class UserController {
     }
 
     /**
-     * 直接传递对象
-     *
      * @param condition
      * @return
      * @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -98,9 +98,9 @@ public class UserController {
      */
     @GetMapping(value = "/users")
     @JsonView(User.UserDetailView.class)
-    @ApiOperation(value = "用户查询服务")
+    @ApiOperation(value = "鑾峰彇鐢ㄦ埛鍒楄〃")
     public List<User> query(UserQueryCondition condition) {
-        System.out.println("condition------：" + condition);
+        System.out.println("condition------" + condition);
         List<User> users = new ArrayList<>();
         users.add(new User("xiaoming", "123123"));
         users.add(new User("xiaohong", "123123"));
@@ -109,32 +109,26 @@ public class UserController {
     }
 
     /**
-     * PathVariable  url中的
-     * URL  中使用正则表达式 :\d+
-     *
+     * PathVariable
+     * URL
      * @param id
      * @return
      * @RequestMapping(value = "/{id:\\d+}", method = RequestMethod.GET)
      * @GetMapping(value = "/users")
      */
     @GetMapping(value = "/{id:\\d+}")
-    public User getInfo(@ApiParam(value = "用户ID") @PathVariable(name = "id") String id) {
-        System.out.println("Controller 进入getInfo 服务");
-//        throw new UserNotExistException(id);
-//        throw new RuntimeException("what fuck the line?");
-        System.out.println("Controller id------：" + id);
+    public User getInfo(@ApiParam(value = "鐢ㄦ埛ID") @PathVariable(name = "id") String id) {
+        System.out.println("Controller ");
+
+//      throw new UserNotExistException(id);
+//      throw new RuntimeException("what fuck the line?");
+
+        System.out.println("Controller id-----" + id);
         User user = new User();
         user.setUsername("tom");
         user.setPassword("234234");
         return user;
     }
 
-    /**
-     * @JsonView 使用步骤
-     * 1、使用接口来声明多个视图
-     * 2、在值对象的get方法中指定视图
-     * 3、在Controller 方法中指定视图
-     * 详情查看User 实体类
-     */
 
 }

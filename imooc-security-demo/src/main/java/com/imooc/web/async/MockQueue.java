@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
  * Create Date: 2018/4/3
  * Class Describe
  **/
+
 @Component
 public class MockQueue {
 
@@ -23,16 +24,16 @@ public class MockQueue {
     }
 
     public void setPlaceOrer(String placeOrer) throws InterruptedException {
-      new Thread(()->{
-          logger.info("接到下单请求： " + placeOrer);
-          try {
-              Thread.sleep(1000);
-          } catch (InterruptedException e) {
-              e.printStackTrace();
-          }
-          this.completeOrer = placeOrer;
-          logger.info("下单请求处理完毕： " + completeOrer);
-      });
+        new Thread(() -> {
+            logger.info("绾跨▼鎿嶄綔" + placeOrer);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            this.completeOrer = placeOrer;
+            logger.info("绾跨▼鎿嶄綔" + completeOrer);
+        });
     }
 
     public String getCompleteOrer() {

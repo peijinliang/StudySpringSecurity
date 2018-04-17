@@ -1,6 +1,5 @@
 package com.imooc.dto;
 
-
 /**
  * Crete by Marlon
  * Create Date: 2018/4/3
@@ -29,4 +28,5 @@ public class FileInfo {
                        "path='" + path + '\'' +
                        '}';
     }
+
 }

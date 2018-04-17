@@ -3,7 +3,6 @@ package com.imooc.dto;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.imooc.validator.MyConstraint;
 import org.hibernate.validator.constraints.NotBlank;
-
 import javax.validation.constraints.Past;
 import java.util.Date;
 
@@ -12,10 +11,7 @@ import java.util.Date;
  * Create Date: 2018/3/29
  * Class Describe
  **/
-
-
 public class User {
-
 
     public interface UserSimpleView {
 
@@ -25,15 +21,15 @@ public class User {
 
     }
 
-    @NotBlank(message = "ÃÜÂë²»ÄÜÎª¿Õ")
+    @NotBlank(message = "å¯†ç ä¸èƒ½ä¸ºç©º")
     private String password;
 
-    @MyConstraint(message = "ÕâÊÇÒ»¸ö²âÊÔ Ğ£Ñé")
+    @MyConstraint(message = "ç”¨æˆ·åä¸èƒ½ä¸ºç©º")
     private String username;
 
     private String id;
 
-    @Past(message = "ÉúÈÕ±ØĞëÊÇ¹ıÈ¥µÄÊ±¼ä")
+    @Past(message = "ç”Ÿæ—¥æ—¥æœŸ")
     private Date birthday;
 
     public User() {
@@ -65,12 +61,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                       "password='" + password + '\'' +
-                       ", username='" + username + '\'' +
-                       '}';
+        return "User{" + "password='" + password + '\'' + ", username='" + username + '\'' + '}';
     }
-
 
     @JsonView(UserSimpleView.class)
     public String getId() {

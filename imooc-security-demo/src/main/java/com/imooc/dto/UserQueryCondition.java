@@ -7,15 +7,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Create Date: 2018/3/29
  * Class Describe
  **/
+
 public class UserQueryCondition {
 
     private String username;
 
-    @ApiModelProperty(value = "”√ªßƒÍ¡‰∆ º÷µ")
+    @ApiModelProperty(value = "Ëµ∑ÂßãÈ°µ")
     private int age;
-    @ApiModelProperty(value = "”√ªßƒÍ¡‰÷’÷π÷µ")
+    @ApiModelProperty(value = "ÁªàÊ≠¢È°µ")
     private int ageTo;
-
 
     private String xxx;
 

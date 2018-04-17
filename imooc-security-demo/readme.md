@@ -1,24 +1,15 @@
 
-Òì²½´¦ÀíRest·þÎñ
+#Spring Security å¼€å‘åŸºäºŽè¡¨å•çš„è®¤è¯
+
+###è‡ªå®šä¹‰ç™»å½•æµç¨‹
 
 
-Ê¹ÓÃRunable Òì²½´¦ÀíRest·þÎñ
-
-Ê¹ÓÃDeferredResult Òì²½´¦ÀíRest·þÎñ
-
-Òì²½´¦ÀíÅäÖÃ
+###è‡ªå®šä¹‰ç™»å½•å¤„ç†æˆåŠŸå¤„ç†
+ç™»å½•æˆåŠŸç•Œé¢
 
 
-1¡¢Tomcat µÄÏß³ÌÓÐÏÞµÄ
-2¡¢Í¨¹ýÆôÓÃ ¸±Ïß³Ì¿ÉÒÔÔö´óÍÌÍÂÁ¿
-
-
-ÓëÇ°¶ËÒ»Æð¹¤×÷µÄ¹¤¾ß
-
-
-
-Swagger ×Ô¶¯Éú³ÉHTMLÎÄµµ
-WireMock¿ìËÙÎ±ÔìRestFul·þÎñ
+###è‡ªå®šä¹‰ç™»å½•å¤±è´¥å¤„ç†
+ç™»å½•å¤±è´¥ åšä¸€ä¸‹è®°å½• ç™»é™†å‡ æ¬¡ ç™»å½•åœ°å€ ç­‰ç­‰ä¿¡æ¯
 
 
 

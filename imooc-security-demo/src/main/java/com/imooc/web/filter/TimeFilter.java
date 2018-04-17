@@ -1,7 +1,5 @@
 package com.imooc.web.filter;
 
-import org.springframework.stereotype.Component;
-
 import javax.servlet.*;
 import java.io.IOException;
 import java.util.Date;
@@ -12,6 +10,7 @@ import java.util.Date;
  * Class Describe
  * 过滤器
  **/
+
 //@Component  采用另一种配置方式
 public class TimeFilter implements Filter {
 

@@ -1,11 +1,11 @@
 package com.imooc.exception;
 
-
 /**
  * Crete by Marlon
  * Create Date: 2018/4/2
  * Class Describe
  **/
+
 public class UserNotExistException extends RuntimeException {
 
     private String id;

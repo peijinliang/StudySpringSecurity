@@ -13,16 +13,14 @@ import java.lang.annotation.Target;
  * Class Describe
  **/
 
-@Target({ElementType.METHOD ,ElementType.FIELD})  //方法校验 字段校验
+@Target({ElementType.METHOD ,ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = MyConstraintValidator.class)
 public  @interface MyConstraint {
 
-    //一下三个属性必须要有
     String message() ;
 
     Class<?>[] groups() default { };
 
     Class<? extends Payload>[] payload() default { };
-
 }

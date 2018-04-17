@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
  * Create Date: 2018/4/2
  * Class Describe
  **/
+
 @Service
 public class HelloServiceImpl implements HelloService {
 
     @Override
-    public String greeting(String name) {  //greeting  Œ ∫Ú
+    public String greeting(String name) {
+        //greeting
         System.out.println("Hello greeting ....");
         return "hello " + name;
     }

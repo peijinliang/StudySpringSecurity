@@ -16,6 +16,7 @@
     <!--Spring io 替你去管理你的版本version artifactId  -->
     <dependencyManagement>
         <dependencies>
+            
             <dependency>
                 <groupId>io.spring.platform</groupId>
                 <artifactId>platform-bom</artifactId>
@@ -32,6 +33,7 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <build>

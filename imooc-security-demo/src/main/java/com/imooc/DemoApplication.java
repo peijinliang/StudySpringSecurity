@@ -10,7 +10,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Crete by Marlon
  * Create Date: 2018/3/29
  * Class Describe
+ * @EnableWebSecurity
  **/
+
 @SpringBootApplication
 @RestController
 @EnableSwagger2
