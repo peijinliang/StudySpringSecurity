@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>imooc-security-demo</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>com.imooc.security</groupId>
@@ -15,8 +15,8 @@
 
     <dependencies>
 
+        <!--浏览器安全-->
         <dependency>
-            <!--浏览器安全-->
             <groupId>com.imooc.security</groupId>
             <artifactId>imooc-security-browser</artifactId>
             <version>${imooc.security.version}</version>
@@ -60,10 +60,9 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
-
     </dependencies>
 
-    <!-- 打包插件 -->
+    <!--打包插件 -->
     <build>
         <plugins>
             <plugin>
@@ -81,5 +80,6 @@
         </plugins>
         <finalName>demo</finalName>
     </build>
+
 
 </project>
