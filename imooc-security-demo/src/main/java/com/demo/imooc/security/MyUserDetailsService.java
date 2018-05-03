@@ -1,4 +1,4 @@
-package com.demo.browser;
+package com.demo.imooc.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.social.security.SocialUser;
+import org.springframework.social.security.SocialUserDetails;
+import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,8 +19,9 @@ import org.springframework.stereotype.Component;
  * Create Date: 2018/4/11
  * Class Describe
  **/
+
 @Component
-public class MyUserDetailsService implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService, SocialUserDetailsService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -41,5 +45,15 @@ public class MyUserDetailsService implements UserDetailsService {
      * credentialsNonExpired 认证过期
      * accountNonLocked      账号没有被锁住
      */
+    @Override
+    public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        logger.info("" + userId);
+        // 每一次加密结果都不一样
+        String password = passwordEncoder.encode("123456");
+        logger.info("-------------------" + password);
+        // User  实现了   UserDetails 接口  如果校验都通过则把 信息放到session中去
+        return new SocialUser(userId, password, true, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+    }
+
 
 }

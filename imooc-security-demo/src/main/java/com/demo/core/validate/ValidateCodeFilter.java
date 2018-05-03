@@ -66,6 +66,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
                 urls.add(configUrl);
             }
         }
+
         urls.add("/authentication/form");
 //        if (StringUtils.equals("/authentication/form", request.getRequestURI()) && StringUtils.equalsIgnoreCase("post", request.getMethod())) {
 //            try {
@@ -75,6 +76,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 //                return;
 //            }
 //        }
+
     }
 
     /**

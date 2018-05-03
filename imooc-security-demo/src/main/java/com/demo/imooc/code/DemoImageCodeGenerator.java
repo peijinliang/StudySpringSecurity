@@ -20,5 +20,4 @@ public class DemoImageCodeGenerator implements ValidateCodeGenerator {
         return null;
     }
 
-
 }

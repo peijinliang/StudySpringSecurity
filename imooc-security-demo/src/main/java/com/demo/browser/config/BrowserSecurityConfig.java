@@ -19,6 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.social.security.SpringSocialConfigurer;
+
 import javax.sql.DataSource;
 
 /**
@@ -47,17 +49,20 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
     @Autowired
+    private SpringSocialConfigurer springSocialConfigurer;
+
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+    //系统启动时 默认创建这个表
+    //tokenRepository.setCreateTableOnStartup(true);
 
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
         tokenRepository.setDataSource(dataSource);
-        //系统启动时 默认创建这个表
-        //tokenRepository.setCreateTableOnStartup(true);
         return tokenRepository;
     }
 
@@ -104,13 +109,19 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .successHandler(imoocAuthenticationSuccessHandler)
                 .failureHandler(imoocAuthenticationFailureHandler)
                 .and()
+                .apply(springSocialConfigurer)
+                .and()
                 .rememberMe()
                 .tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
                 .userDetailsService(userDetailsService)
                 .and()
                 .authorizeRequests()  //authorize 授权请求
-                .antMatchers("/authentication/require", "/code/*", securityProperties.getBrowser().getLoginPage()).permitAll()
+                .antMatchers("/authentication/require",
+                        "/code/*",
+                        securityProperties.getBrowser().getLoginPage(),
+                        securityProperties.getBrowser().getSignUpUrl(),
+                        "/user/regist").permitAll()
                 .anyRequest()         //所有的请求
                 .authenticated() //authenticated  已认证
                 .and()
@@ -120,6 +131,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         //否则报错 Could not verify the provided CSRF token because your session was not found
         // 配置HTTP请求
         //super.configure(http);
+
     }
 
 }

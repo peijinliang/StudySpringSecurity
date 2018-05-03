@@ -7,6 +7,8 @@ package com.demo.core.properties;
  **/
 public class BrowserProperties {
 
+    private String signUpUrl;
+
     /**
      * 用户配置用用户配置的
      * 用户没有配置用默认的
@@ -42,6 +44,15 @@ public class BrowserProperties {
 
     public void setRememberMeSeconds(int rememberMeSeconds) {
         this.rememberMeSeconds = rememberMeSeconds;
+    }
+
+
+    public String getSignUpUrl() {
+        return signUpUrl;
+    }
+
+    public void setSignUpUrl(String signUpUrl) {
+        this.signUpUrl = signUpUrl;
     }
 
     @Override
